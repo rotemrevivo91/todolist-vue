@@ -3,7 +3,10 @@
 		<v-card>
 			<v-card-title primary-title>
 				<div> 
-					{{ todo.text }}
+					{{ todo.newitem }}
+					{{ todo.desc }}
+					{{ todo.date }}
+					{{ todo.time }}
 					<button @click="$emit('remove',todo.id)">X</button>
 					<Timer
 						@removeevent="$emit('remove',todo.id)"

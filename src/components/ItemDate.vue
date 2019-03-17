@@ -1,15 +1,15 @@
 <template>
 	<v-menu
-        ref="menu1"
-        v-model="menu1"
-        :close-on-content-click="true"
-        :nudge-right="40"
-        lazy
-        transition="scale-transition"
-        offset-y
-        full-width
-        max-width="290px"
-        min-width="290px">
+		ref="menu1"
+		v-model="menu1"
+		:close-on-content-click="true"
+		:nudge-right="40"
+		lazy
+		transition="scale-transition"
+		offset-y
+		full-width
+		max-width="290px"
+		min-width="290px">
 		<template v-slot:activator="{ on }">
 			<v-text-field
 				v-model="date"
@@ -24,12 +24,6 @@
 
 <script>
 	export default{
-		props:{
-			value: {
-				type: String,
-				default : ""
-			}
-		},
 		computed:{
 				listeners(){
 				return{
@@ -41,9 +35,10 @@
 		},
 		data(){
 			return{
-			date: new Date().toISOString().substr(0, 10),
-			menu1: false,
-			menu2: false
+				date: new Date().toISOString().substr(0, 10),
+				menu1: false,
+				menu2: false,
+				value: ""
 		}
 	}
 }

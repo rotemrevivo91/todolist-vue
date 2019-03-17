@@ -2,16 +2,24 @@
 	<v-layout>
 		<v-flex xs6>
 				<InputItem
-					v-model="newitem"
+					v-model='newitem'
+					@change='change_item'
 					placeholder="Add item"
 				/>
 				<ItemText
-					v-model="itemdes"
+					v-model='text'
+					@change='change_desc'
 					placeholder="Item description"
 				/>
-				<ItemDate v-model="mydate"/>
+				<ItemDate 
+					v-model='mydate'
+					@change='change_date'
+				/>
 		</v-flex>
-		<ItemTime v-model="mytime"/>
+		<ItemTime 
+			v-model='mytime'
+			@change='change_time'
+		/>
 	</v-layout>
 </template>
 
@@ -26,22 +34,25 @@
 			InputItem, ItemText, ItemDate, ItemTime
 		},
 		data(){
-			return{	
-				newitem : '',
-				itemdes : '',
-				mydate : '',
-				mytime : '',
-				infolist : []
+			return{
+				text: '',
+				newitem: '',
+				mydate: '',
+				mytime: ''
 			}
 		},
-		methods: {
-			sendItem(){
-				this.infolist.push(this.newitem)
-				this.infolist.push(this.itemdes)
-				this.infolist.push(this.mydate)
-				this.infolist.push(this.mytime)
-				this.$emit('input',this.infolist)
-				this.infolist = []
+		methods:{
+			change_desc(){
+				this.$store.commit('change_desc',this.text)
+			},
+			change_item(){
+				this.$store.commit('change_item',this.newitem)
+			},
+			change_date(){
+				this.$store.commit('change_date',this.mydate)
+			},
+			change_time(){
+				this.$store.commit('change_time',this.mytime)
 			}
 		}
 	}

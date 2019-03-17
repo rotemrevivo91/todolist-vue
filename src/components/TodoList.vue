@@ -43,8 +43,13 @@
 		},
 		methods: {
 			addItem(){
-				this.newitem.push(nid++)
-				this.todolist.push(this.newitem)
+				this.todolist.push({
+					'id':nid++,
+					'newitem':this.$store.getters.newitem,
+					'desc':this.$store.getters.itemdes,
+					'date':this.$store.getters.mydate,
+					'time':this.$store.getters.mytime
+				})
 				//remove input's text
 				this.newitem = []
 			},
@@ -56,5 +61,3 @@
 
 	}
 </script>
-
-
